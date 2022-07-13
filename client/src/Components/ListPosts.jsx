@@ -1,17 +1,8 @@
 import React from "react";
 import Post from "./Post";
 import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
-function ListPosts() {
-  const [posts, setPosts] = useState({});
-  const fetchposts = async () => {
-    const res = await axios.get("http://localhost:4000/posts");
-    setPosts(res.data);
-  };
-  useEffect(() => {
-    fetchposts();
-  }, []);
+
+function ListPosts({ posts }) {
   return (
     <div>
       {posts &&

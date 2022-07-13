@@ -1,20 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { useEffect } from "react";
 
-function Comments({ id }) {
-  const [comments, setComments] = useState([]);
+function Comments({ id, comments }) {
   const [comment, setComment] = useState("");
-
-  const fetchComments = async () => {
-    const res = await axios.get(`http://localhost:4001/posts/${id}/comments`);
-    setComments(Object.values(res.data));
-  };
-
-  useEffect(() => {
-    fetchComments();
-  }, []);
 
   const addComment = async (e) => {
     e.preventDefault();
@@ -29,7 +18,7 @@ function Comments({ id }) {
         <div className="text-xl font-semibold">Comments</div>
         <ul className="font-thin">
           {comments.map((data) => {
-            return <li key={data.id}>{data.content}</li>;
+            return <li key={data.commentId}>{data.content}</li>;
           })}
         </ul>
         <div className="my-3 flex ">
