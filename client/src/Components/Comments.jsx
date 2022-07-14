@@ -18,7 +18,12 @@ function Comments({ id, comments }) {
         <div className="text-xl font-semibold">Comments</div>
         <ul className="font-thin">
           {comments.map((data) => {
-            return <li key={data.commentId}>{data.content}</li>;
+            const status = data.status;
+            return (
+              <li key={data.commentId}>
+                {status === "approved" ? data.content : status}
+              </li>
+            );
           })}
         </ul>
         <div className="my-3 flex ">
