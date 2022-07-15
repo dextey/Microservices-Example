@@ -4,7 +4,7 @@ import axios from "axios";
 
 function ListPosts({ posts }) {
   return (
-    <div>
+    <div className="flex">
       {posts &&
         Object.values(posts).map((post) => {
           return <Post key={post.id} post={post} />;
