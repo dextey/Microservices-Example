@@ -9,6 +9,7 @@ app.use(cors());
 
 app.post("/events", async (req, res) => {
   const { type, data } = req.body;
+  console.log(`Event : ${type}`);
 
   if (type === "CommentCreated") {
     const { content } = data;

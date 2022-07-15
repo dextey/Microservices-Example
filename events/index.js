@@ -1,14 +1,18 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
-
+const cors = require("cors");
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
+
+const events = [];
 
 app.post("/events/", (req, res) => {
   const event = req.body;
-  console.log(event);
+  events.push(event);
+
   axios
     .post("http://localhost:4000/events", event)
     .catch((error) => console.log("error 1"));
@@ -23,6 +27,12 @@ app.post("/events/", (req, res) => {
     .catch((error) => console.log("error 4"));
 
   res.send({ status: "OK" });
+});
+
+app.get("/events", (req, res) => {
+  // res.status(200).send({ events: events });
+  console.log(events);
+  res.send(events);
 });
 
 app.listen(4005, () => {
