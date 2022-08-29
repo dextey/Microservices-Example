@@ -14,17 +14,17 @@ app.post("/events/", (req, res) => {
   events.push(event);
 
   axios
-    .post("http://localhost:4000/events", event)
+    .post("http://posts-service:4000/events", event)
     .catch((error) => console.log("error 1"));
-  axios
-    .post("http://localhost:4001/events", event)
-    .catch((error) => console.log("error 2"));
-  axios
-    .post("http://localhost:4002/events", event)
-    .catch((error) => console.log("error 3"));
-  axios
-    .post("http://localhost:4003/events", event)
-    .catch((error) => console.log("error 4"));
+  // axios
+  //   .post("http://localhost:4001/events", event)
+  //   .catch((error) => console.log("error 2"));
+  // axios
+  //   .post("http://localhost:4002/events", event)
+  //   .catch((error) => console.log("error 3"));
+  // axios
+  //   .post("http://localhost:4003/events", event)
+  //   .catch((error) => console.log("error 4"));
 
   res.send({ status: "OK" });
 });
