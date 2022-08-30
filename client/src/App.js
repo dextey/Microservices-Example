@@ -6,7 +6,7 @@ function App() {
   const [posts, setPosts] = useState({});
 
   const fetchposts = async () => {
-    const posts = await axios.get("http://localhost:4002/posts");
+    const posts = await axios.get("http://blog.com/posts");
     setPosts(posts.data);
   };
   useEffect(() => {

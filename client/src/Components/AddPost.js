@@ -7,7 +7,7 @@ function AddPost() {
 
   const addPost = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:4000/posts", { post });
+    await axios.post("http://blog.com/posts/create", { post });
     setPost("");
   };
 

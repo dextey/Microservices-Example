@@ -16,9 +16,9 @@ app.post("/events/", (req, res) => {
   axios
     .post("http://posts-service:4000/events", event)
     .catch((error) => console.log("error 1"));
-  // axios
-  //   .post("http://localhost:4001/events", event)
-  //   .catch((error) => console.log("error 2"));
+  axios
+    .post("http://comment-service:4001/events", event)
+    .catch((error) => console.log("error 2"));
   // axios
   //   .post("http://localhost:4002/events", event)
   //   .catch((error) => console.log("error 3"));
